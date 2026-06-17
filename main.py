@@ -17,11 +17,17 @@ from pathlib import Path
 
 class Bank:
 
-    database = 'data.json'
-    data = []
+    database = 'data.json' # creating a json file to store the data of the user
+    data = [] # creating a list to store the data of the user as dummy data so that the main database is not affected
+    try:
+        if Path(database).exists():
+            with open(database,'r') as fs:
+                data = json.loads(fs.read()) # loading the data from the json file to the data list
+        else:
+            print("Database file does not exist. Creating a new one.")
+    except Exception as e:
+        print(f"Error in loading the data from the json file as {e}")
 
-    with open(database) as fs:
-        
 
     def create_account(self):
         pass
