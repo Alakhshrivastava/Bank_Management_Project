@@ -51,6 +51,16 @@ class Bank:
             
     """
 
+    @classmethod # creating a private class method to generate a random account number for the user as we don't want anyone to access this method outside the class
+    def __generate_account_number(cls): 
+        alphabets = random.choices(string.ascii_letters, k=3) # generating 3 random alphabets
+        digits = random.choices(string.digits, k=3) # generating 3 random digits 
+        special_characters = random.choices("!@#$%^&*", k=1) # generating 1 random special character(strings.punctuation)
+
+        account_number = alphabets + digits + special_characters 
+        random.shuffle(account_number) # shuffling the account number to make it more random
+        return ''.join(account_number)
+    
     def create_account(self):
 
         # we will ask the user to enter the details of the account and then we will store the data in the json file(The data will be stored in the form of a dictionary and will be passed to the json file as a object)
@@ -59,7 +69,7 @@ class Bank:
             "age": int(input("Enter your age : ")),
             "email": input("Enter your email : "),
             "pin": input("Enter your 4-digit pin : "),
-            "account_number": 1234,
+            "account_number": self.__generate_account_number(), # generating a random account number for the user
             "balance": 0
         }
 
