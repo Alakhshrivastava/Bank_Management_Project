@@ -121,7 +121,7 @@ class Bank:
         else:
             print("Invalid account number or pin.")
 
-    """def get_details(self):
+    def get_details(self):
         account_number = input("Enter your account number : ")
         pin = int(input("Enter your pin : "))
         
@@ -132,7 +132,7 @@ class Bank:
                     print(f"{key} : {value}")
                 break
         else:
-            print("Invalid account number or pin.")"""
+            print("Invalid account number or pin.")
                 
 
 user = Bank()
@@ -154,5 +154,5 @@ if check==2:
 if check==3:
     user.withdraw_money()
     
-"""if check==4:
-    user.get_details()"""
+if check==4:
+    user.get_details()
