@@ -1,1 +1,26 @@
-[{"name": "Alakh Shrivastava", "age": 22, "email": "shrivastava@gmail.com", "pin": "1234", "account_number": 1234, "balance": 0}, {"name": "harsh", "age": 21, "email": "harsh@gmail.com", "pin": "4432", "account_number": "AY93V&7", "balance": 0}]
+[
+  {
+    "name": "Alakh Shrivastava",
+    "age": 22,
+    "email": "shrivastava@gmail.com",
+    "pin": 1234,
+    "account_number": 1234,
+    "balance": 0
+  },
+  {
+    "name": "harsh",
+    "age": 21,
+    "email": "harsh@gmail.com",
+    "pin": 4432,
+    "account_number": "AY93V&7",
+    "balance": 50000
+  },
+  {
+    "name": "pathak",
+    "age": 22,
+    "email": "adjn@gmail.com",
+    "pin": 8888,
+    "account_number": "SX6R08#",
+    "balance": 0
+  }
+]

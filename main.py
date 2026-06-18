@@ -17,7 +17,7 @@ from pathlib import Path
 
 class Bank:
 
-    database = 'Bank_management_Project\data.json' # creating a json file to store the data of the user
+    database = 'data.json' # creating a json file to store the data of the user
 
     data = [] # creating a list to store the data of the user as dummy data so that the main database is not affected
 
@@ -68,7 +68,7 @@ class Bank:
             "name": input("Enter your name : "),
             "age": int(input("Enter your age : ")),
             "email": input("Enter your email : "),
-            "pin": input("Enter your 4-digit pin : "),
+            "pin": int(input("Enter your 4-digit pin : ")),
             "account_number": self.__generate_account_number(), # generating a random account number for the user
             "balance": 0
         }
@@ -85,6 +85,21 @@ class Bank:
 
             Bank.__update() # calling the update method to update the data in the json file
 
+    def deposit_money(self):
+        account_number = input("Enter your account number : ")
+        pin = int(input("Enter your pin : "))
+
+        for i in self.data:
+            if i['account_number'] == account_number and i['pin'] == pin:
+                amount = int(input("Enter the amount you want to deposit : "))
+
+                i['balance'] += amount # adding the amount to the balance of the user
+                print(f"Amount deposited successfully. Your current balance is {i['balance']}.")
+
+                self.__update() # calling the update method to update the data in the json file
+                break
+        else:
+            print("Invalid account number or pin.")
 
 user = Bank()
 print("Press 1 for creating an account")
@@ -98,3 +113,6 @@ check = int(input("Tell your response : "))
 
 if check==1:
     user.create_account()
+
+if check==2:
+    user.deposit_money()
