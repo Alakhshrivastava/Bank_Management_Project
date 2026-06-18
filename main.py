@@ -94,12 +94,46 @@ class Bank:
                 amount = int(input("Enter the amount you want to deposit : "))
 
                 i['balance'] += amount # adding the amount to the balance of the user
+                
+                self.__update() 
                 print(f"Amount deposited successfully. Your current balance is {i['balance']}.")
-
-                self.__update() # calling the update method to update the data in the json file
                 break
         else:
             print("Invalid account number or pin.")
+
+    def withdraw_money(self):
+        account_number = input("Enter your account number : ")
+        pin = int(input("Enter your pin : "))
+
+        for i in self.data:
+            if i['account_number'] == account_number and i['pin'] == pin:
+                amount = int(input("Enter the amount you want to withdraw : "))
+
+                if amount <= i['balance']:
+                    i['balance'] -= amount # subtracting the amount from the balance of the user
+                    
+                else:
+                    print("Insufficient balance. Please try again.")
+                    
+                self.__update()
+                print(f"Amount withdrawn successfully. Your current balance is {i['balance']}.") 
+                break
+        else:
+            print("Invalid account number or pin.")
+
+    """def get_details(self):
+        account_number = input("Enter your account number : ")
+        pin = int(input("Enter your pin : "))
+        
+        for i in self.data:
+            if i['account_number'] == account_number and i['pin'] == pin:
+                print("Your account details are as follows:")
+                for key,value in i.items():
+                    print(f"{key} : {value}")
+                break
+        else:
+            print("Invalid account number or pin.")"""
+                
 
 user = Bank()
 print("Press 1 for creating an account")
@@ -116,3 +150,9 @@ if check==1:
 
 if check==2:
     user.deposit_money()
+
+if check==3:
+    user.withdraw_money()
+    
+"""if check==4:
+    user.get_details()"""
