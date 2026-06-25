@@ -134,7 +134,58 @@ class Bank:
         else:
             print("Invalid account number or pin.")
                 
+    def update_details(self):
+        account_number = input("Enter your account number : ")
+        pin = int(input("Enter your pin:"))
+        
+         
+            
+            
+        """accnumber = input("please tell your account number ")
+        pin = int(input("please tell your pin aswell "))
 
+        userdata = [i for i in Bank.data if i['accountNo.'] == accnumber and i['pin'] == pin]
+
+        if userdata == False:
+            print("no such user found ")
+        
+        else:
+            print("you cannot change the age, account number, balance")
+
+            print("Fill the details for change or leave it empty if no change")
+
+            newdata = {
+                "name": input("please tell new name or press enter : "),
+                "email":input("please tell your new Email or press enter to skip :"),
+                "pin": input("enter new Pin or press enter to skip: ")
+            }
+
+            if newdata["name"] == "":
+                newdata["name"] = userdata[0]['name']
+            if newdata["email"] == "":
+                newdata["email"] = userdata[0]['email']
+            if newdata["pin"] == "":
+                newdata["pin"] = userdata[0]['pin']
+            
+            newdata['age'] = userdata[0]['age']
+
+            newdata['accountNo.'] = userdata[0]['accountNo.']
+            newdata['balance'] = userdata[0]['balance']
+            
+            if type(newdata['pin']) == str:
+                newdata['pin'] = int(newdata['pin'])
+            
+
+            for i in newdata:
+                 if newdata[i] == userdata[0][i]:
+                     continue
+                 else:
+                     userdata[0][i] = newdata[i]
+
+            Bank.__update()
+            print("details updated successfully")"""
+        
+        
 user = Bank()
 print("Press 1 for creating an account")
 print("Press 2 for depositing money in the bank")
@@ -156,3 +207,6 @@ if check==3:
     
 if check==4:
     user.get_details()
+    
+if check==5:
+    user.update_details()
